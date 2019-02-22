@@ -1,0 +1,602 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.6.1": {
+      "Colorful.Console/1.2.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net461/Colorful.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
+      "PhantomJS/2.1.1": {
+        "type": "package"
+      },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        }
+      },
+      "Selenium.Support/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.RC": "3.1.0",
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win": {
+      "Colorful.Console/1.2.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net461/Colorful.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
+      "PhantomJS/2.1.1": {
+        "type": "package"
+      },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        }
+      },
+      "Selenium.Support/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.RC": "3.1.0",
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win-x64": {
+      "Colorful.Console/1.2.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net461/Colorful.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
+      "PhantomJS/2.1.1": {
+        "type": "package"
+      },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        }
+      },
+      "Selenium.Support/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.RC": "3.1.0",
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win-x86": {
+      "Colorful.Console/1.2.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net461/Colorful.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
+      "PhantomJS/2.1.1": {
+        "type": "package"
+      },
+      "Selenium.RC/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/ThoughtWorks.Selenium.Core.dll": {}
+        }
+      },
+      "Selenium.Support/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/WebDriver.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriverBackedSelenium/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.RC": "3.1.0",
+          "Selenium.WebDriver": "3.1.0"
+        },
+        "frameworkAssemblies": [
+          "System.Drawing"
+        ],
+        "compile": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Selenium.WebDriverBackedSelenium.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Colorful.Console/1.2.9": {
+      "sha512": "4zyBt7+aHN7/JozQdJY5gC7IHAUprzv3CHI30XZmprgQloztE+1w9SOgg91K+4QQgJk5qXg9QiaJNz7ySdYPHA==",
+      "type": "package",
+      "path": "colorful.console/1.2.9",
+      "files": [
+        "colorful.console.1.2.9.nupkg.sha512",
+        "colorful.console.nuspec",
+        "lib/net40/Colorful.Console.dll",
+        "lib/net45/Colorful.Console.dll",
+        "lib/net451/Colorful.Console.dll",
+        "lib/net452/Colorful.Console.dll",
+        "lib/net46/Colorful.Console.dll",
+        "lib/net461/Colorful.Console.dll",
+        "lib/netstandard2.0/Colorful.Console.dll"
+      ]
+    },
+    "NUnit/3.11.0": {
+      "sha512": "zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
+      "type": "package",
+      "path": "nunit/3.11.0",
+      "files": [
+        ".signature.p7s",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.txt",
+        "build/NUnit.props",
+        "lib/net20/NUnit.System.Linq.dll",
+        "lib/net20/nunit.framework.dll",
+        "lib/net20/nunit.framework.pdb",
+        "lib/net20/nunit.framework.xml",
+        "lib/net35/nunit.framework.dll",
+        "lib/net35/nunit.framework.pdb",
+        "lib/net35/nunit.framework.xml",
+        "lib/net40/nunit.framework.dll",
+        "lib/net40/nunit.framework.pdb",
+        "lib/net40/nunit.framework.xml",
+        "lib/net45/nunit.framework.dll",
+        "lib/net45/nunit.framework.pdb",
+        "lib/net45/nunit.framework.xml",
+        "lib/netstandard1.4/nunit.framework.dll",
+        "lib/netstandard1.4/nunit.framework.pdb",
+        "lib/netstandard1.4/nunit.framework.xml",
+        "lib/netstandard2.0/nunit.framework.dll",
+        "lib/netstandard2.0/nunit.framework.pdb",
+        "lib/netstandard2.0/nunit.framework.xml",
+        "nunit.3.11.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
+    "PhantomJS/2.1.1": {
+      "sha512": "F54BCUZC4uodX/rIcgWbhcDjXXbieEPaSB0Zs6QRQrwAvKfHM5O664E17mGdM0T2b3/FNdpCP5iTl/SLVnCwgQ==",
+      "type": "package",
+      "path": "phantomjs/2.1.1",
+      "files": [
+        ".signature.p7s",
+        "content/phantomjs-license.txt",
+        "phantomjs.2.1.1.nupkg.sha512",
+        "phantomjs.nuspec",
+        "tools/install.ps1",
+        "tools/phantomjs/ChangeLog",
+        "tools/phantomjs/LICENSE.BSD",
+        "tools/phantomjs/README.md",
+        "tools/phantomjs/examples/arguments.js",
+        "tools/phantomjs/examples/child_process-examples.js",
+        "tools/phantomjs/examples/colorwheel.js",
+        "tools/phantomjs/examples/countdown.js",
+        "tools/phantomjs/examples/detectsniff.js",
+        "tools/phantomjs/examples/echoToFile.js",
+        "tools/phantomjs/examples/features.js",
+        "tools/phantomjs/examples/fibo.js",
+        "tools/phantomjs/examples/hello.js",
+        "tools/phantomjs/examples/injectme.js",
+        "tools/phantomjs/examples/loadspeed.js",
+        "tools/phantomjs/examples/loadurlwithoutcss.js",
+        "tools/phantomjs/examples/modernizr.js",
+        "tools/phantomjs/examples/module.js",
+        "tools/phantomjs/examples/netlog.js",
+        "tools/phantomjs/examples/netsniff.js",
+        "tools/phantomjs/examples/openurlwithproxy.js",
+        "tools/phantomjs/examples/outputEncoding.js",
+        "tools/phantomjs/examples/page_events.js",
+        "tools/phantomjs/examples/pagecallback.js",
+        "tools/phantomjs/examples/phantomwebintro.js",
+        "tools/phantomjs/examples/post.js",
+        "tools/phantomjs/examples/postjson.js",
+        "tools/phantomjs/examples/postserver.js",
+        "tools/phantomjs/examples/printenv.js",
+        "tools/phantomjs/examples/printheaderfooter.js",
+        "tools/phantomjs/examples/printmargins.js",
+        "tools/phantomjs/examples/rasterize.js",
+        "tools/phantomjs/examples/render_multi_url.js",
+        "tools/phantomjs/examples/responsive-screenshot.js",
+        "tools/phantomjs/examples/run-jasmine.js",
+        "tools/phantomjs/examples/run-jasmine2.js",
+        "tools/phantomjs/examples/run-qunit.js",
+        "tools/phantomjs/examples/scandir.js",
+        "tools/phantomjs/examples/server.js",
+        "tools/phantomjs/examples/serverkeepalive.js",
+        "tools/phantomjs/examples/simpleserver.js",
+        "tools/phantomjs/examples/sleepsort.js",
+        "tools/phantomjs/examples/stdin-stdout-stderr.js",
+        "tools/phantomjs/examples/universe.js",
+        "tools/phantomjs/examples/unrandomize.js",
+        "tools/phantomjs/examples/useragent.js",
+        "tools/phantomjs/examples/version.js",
+        "tools/phantomjs/examples/waitfor.js",
+        "tools/phantomjs/examples/walk_through_frames.js",
+        "tools/phantomjs/phantomjs.exe",
+        "tools/phantomjs/third-party.txt",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "Selenium.RC/3.1.0": {
+      "sha512": "F9sSE7yosm/DgN0wpfzECvpAAH7koLonwNkhIGKPQIW4/xEQI7eqtO9CgYkyEEqQDk1YhDZI1kjJoxAulkBdQA==",
+      "type": "package",
+      "path": "selenium.rc/3.1.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/ThoughtWorks.Selenium.Core.dll",
+        "lib/net35/ThoughtWorks.Selenium.Core.xml",
+        "lib/net40/ThoughtWorks.Selenium.Core.dll",
+        "lib/net40/ThoughtWorks.Selenium.Core.xml",
+        "selenium.rc.3.1.0.nupkg.sha512",
+        "selenium.rc.nuspec"
+      ]
+    },
+    "Selenium.Support/3.1.0": {
+      "sha512": "ihtUs6KgLm3JiGmKBPTPD/NC86RBhn8DnW3TfeOrUBxN1q3JHFnOco+kvm44MgdcdUUeffO6OrXHMB1cOv/wUQ==",
+      "type": "package",
+      "path": "selenium.support/3.1.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/WebDriver.Support.dll",
+        "lib/net35/WebDriver.Support.xml",
+        "lib/net40/WebDriver.Support.dll",
+        "lib/net40/WebDriver.Support.xml",
+        "selenium.support.3.1.0.nupkg.sha512",
+        "selenium.support.nuspec"
+      ]
+    },
+    "Selenium.WebDriver/3.1.0": {
+      "sha512": "U0v5CKBxjB+IQZuHAibw1QhtggSFiOVJ7yM5oDrECUOJZJlzHf3TCuzYrrco3uS6OqgRy+c/2gQfWksntkzBag==",
+      "type": "package",
+      "path": "selenium.webdriver/3.1.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/WebDriver.dll",
+        "lib/net35/WebDriver.xml",
+        "lib/net40/WebDriver.dll",
+        "lib/net40/WebDriver.xml",
+        "selenium.webdriver.3.1.0.nupkg.sha512",
+        "selenium.webdriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriverBackedSelenium/3.1.0": {
+      "sha512": "ohnKGKPMny7DNuVHlDLS6ZPNVf1nD/9wyPLyy251f4bZ2Hfg/OhvieRWfZw8s1RwF+rl/60tJzsXLpf6aDrvmw==",
+      "type": "package",
+      "path": "selenium.webdriverbackedselenium/3.1.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net35/Selenium.WebDriverBackedSelenium.xml",
+        "lib/net40/Selenium.WebDriverBackedSelenium.dll",
+        "lib/net40/Selenium.WebDriverBackedSelenium.xml",
+        "selenium.webdriverbackedselenium.3.1.0.nupkg.sha512",
+        "selenium.webdriverbackedselenium.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.6.1": [
+      "Colorful.Console >= 1.2.9",
+      "NUnit >= 3.11.0",
+      "PhantomJS >= 2.1.1",
+      "Selenium.Support >= 3.1.0",
+      "Selenium.WebDriver >= 3.1.0",
+      "Selenium.WebDriverBackedSelenium >= 3.1.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Wenzz\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Users\\Wenzz\\source\\repos\\Aion EU\\AION Database Parser\\AION Database Parser.csproj",
+      "projectName": "AION Database Parser",
+      "projectPath": "D:\\Users\\Wenzz\\source\\repos\\Aion EU\\AION Database Parser\\AION Database Parser.csproj",
+      "packagesPath": "C:\\Users\\Wenzz\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\Wenzz\\source\\repos\\Aion EU\\AION Database Parser\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\Wenzz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net461"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\Users\\Wenzz\\source\\repos\\References\\selenium": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net461": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net461": {
+        "dependencies": {
+          "Colorful.Console": {
+            "target": "Package",
+            "version": "[1.2.9, )"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "[3.11.0, )"
+          },
+          "PhantomJS": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          },
+          "Selenium.Support": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Selenium.WebDriver": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Selenium.WebDriverBackedSelenium": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}
