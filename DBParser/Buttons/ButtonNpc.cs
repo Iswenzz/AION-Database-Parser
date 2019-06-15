@@ -11,6 +11,6 @@ namespace Iswenzz.AION.DBParser.Buttons
             Stop = stop;
         }
 
-        public override void Parse() => new NPC_Parser(Name, Url);
+        public override void Parse() => new NpcParser(Name, Url);
     }
 }
