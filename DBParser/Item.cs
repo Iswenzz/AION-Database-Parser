@@ -165,7 +165,7 @@ namespace Iswenzz.AION.DBParser
 
         public void getRarity()
         {
-            if((int)Item_NPC_Parser.NPC_Grade > 1 || Table_Info.isChest(Item_NPC_Parser.NPC_name))
+            if((int)Item_NPC_Parser.NPC_Grade > 1 || Table_Info.IsChest(Item_NPC_Parser.NPC_name))
                 this.Rarity = Config.getRarityByGroup_BOSS(this.Group);
             else
                 this.Rarity = Config.getRarityByGroup(this.Group);

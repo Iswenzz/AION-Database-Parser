@@ -204,7 +204,7 @@ namespace Iswenzz.AION.DBParser
                 return "0";
 
             int i = 0;
-            while (Char.IsDigit(newInfo[newInfo.IndexOf(':') + 2 + i]))
+            while (char.IsDigit(newInfo[newInfo.IndexOf(':') + 2 + i]))
                 i++;
 
             switch (i)
@@ -249,7 +249,7 @@ namespace Iswenzz.AION.DBParser
                 return str;
         }
 
-        public static bool isChest(string npc_name)
+        public static bool IsChest(string npc_name)
         {
             if (npc_name.Contains("Box")) return true;
             if (npc_name.Contains("Crate")) return true;
@@ -266,7 +266,7 @@ namespace Iswenzz.AION.DBParser
                 .Replace(" entries", "");
 
             int to_sub = 0;
-            while (Char.IsNumber(str[str.Length - to_sub - 1]))
+            while (char.IsNumber(str[str.Length - to_sub - 1]))
                 to_sub++;
 
             return int.Parse(str.Substring(str.Length - to_sub));

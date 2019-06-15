@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
+using Iswenzz.AION.DBParser.Buttons;
+
 namespace Iswenzz.AION.DBParser
 {
     class Program
@@ -16,7 +18,7 @@ namespace Iswenzz.AION.DBParser
 
             int input = 1000;
             bool stop = false;
-            dynamic checker = Link.button;
+            dynamic checker = ButtonTable.Button;
 
             Console.Clear();
             Console.WriteLine("Iswenzz (c) 2018\n");
@@ -44,10 +46,10 @@ namespace Iswenzz.AION.DBParser
                     {
                         switch (checker[input].Name)
                         {
-                            case "NPC":   checker = Link.npc;    break;
-                            case "Grade": checker = Link.grade;  break;
-                            case "Zone":  checker = Link.zone;   break;
-                            default:      stop = true;           break;
+                            case "NPC":   checker = ButtonTable.Npc;    break;
+                            case "Grade": checker = ButtonTable.Grade;  break;
+                            case "Zone":  checker = ButtonTable.Zone;   break;
+                            default:      stop = true;                  break;
                         }
                     }
                 }
