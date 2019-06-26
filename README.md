@@ -1,5 +1,5 @@
 # AION Database Parser
 
-Parse npc_drop with http://aiondatabase.net
+Parse npc drops from http://aiondatabase.net
 
 Credits: Iswenzz
