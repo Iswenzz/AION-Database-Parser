@@ -7,7 +7,7 @@ using System.Threading;
 using Console = Colorful.Console;
 using System.Drawing;
 
-using Iswenzz.AION.utility;
+using Iswenzz.AION.Utility;
 using Iswenzz.AION.DBParser.Data;
 
 namespace Iswenzz.AION.DBParser

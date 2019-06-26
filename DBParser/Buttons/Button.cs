@@ -15,6 +15,6 @@ namespace Iswenzz.AION.DBParser.Buttons
             Stop = stop;
         }
 
-        public virtual void Parse() { }
+        public virtual void Execute() { }
     }
 }
