@@ -18,9 +18,9 @@ namespace Iswenzz.AION.DBParser
             PhantomKillProcess();
             PhantomStart();
 
-            int input = 1000;
+            int input = 0;
             bool stop = false;
-            dynamic checker = ButtonTable.Button;
+            Button[] button = ButtonTable.Button;
 
             Console.Clear();
             Console.WriteLine("Iswenzz (c) 2018\n");
@@ -33,30 +33,36 @@ namespace Iswenzz.AION.DBParser
                 while (!stop)
                 {
                     int index = 0;
-                    foreach (var selection in checker)
-                        Console.WriteLine((index += 1) + ". {0}" + selection.Name, selection.Stop ? "" : ">>");
+                    foreach (var selection in button)
+                        Console.WriteLine((++index) + ". {0}" + selection.Name, selection.Stop ? "" : ">>");
                     Console.WriteLine("\nParse Number: ");
 
                     string input_key = Console.ReadLine();
                     int.TryParse(input_key, out int input_parsed);
-                    input = input_parsed;
-                    input--;
-
+                    input = --input_parsed;
                     Console.Clear();
 
-                    if (input + 1 <= checker.Length)
+                    try
                     {
-                        switch (checker[input].Name)
+                        if (input + 1 <= button.Length)
                         {
-                            case "NPC":   checker = ButtonTable.Npc;    break;
-                            case "Grade": checker = ButtonTable.Grade;  break;
-                            case "Zone":  checker = ButtonTable.Zone;   break;
-                            default:      stop = true;                  break;
+                            switch (button[input].Name)
+                            {
+                                case "NPC": button = ButtonTable.Npc; break;
+                                case "Grade": button = ButtonTable.Grade; break;
+                                case "Zone": button = ButtonTable.Zone; break;
+                                default: stop = true; break;
+                            }
                         }
                     }
+                    catch (IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("\nWrong input.\n");
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                    }
                 }
-
-                checker[input].Parse();
+                button[input].Execute();
             }
             catch (Exception e) { Console.WriteLine("\n" + e + "\n"); Thread.Sleep(1000); Main(); }
 
