@@ -6,7 +6,13 @@ namespace Iswenzz.AION.DBParser.Buttons
     {
         public static Button[] Button = new Button[]
         {
-            new Button("NPC")
+             new Button("Aiondatabase.net"),
+             new Button("From AL-Server"),
+        };
+
+        public static ButtonAsset[] Asset = new ButtonAsset[]
+        {
+            new ButtonAsset("NPC")
         };
 
         public static ButtonNpc[] Npc = new ButtonNpc[]

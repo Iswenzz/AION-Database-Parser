@@ -13,12 +13,13 @@ namespace Iswenzz.AION.DBParser
         public static PhantomJSDriver Driver { get; set; }
         public static PhantomJSDriverService DriverService { get; set; }
 
+        [STAThread]
         public static void Main()
         {
             PhantomKillProcess();
             PhantomStart();
 
-            int input = 0;
+            int inputIndex = 0;
             bool stop = false;
             Button[] button = ButtonTable.Button;
 
@@ -34,23 +35,27 @@ namespace Iswenzz.AION.DBParser
                 {
                     int index = 0;
                     foreach (var selection in button)
-                        Console.WriteLine((++index) + ". {0}" + selection.Name, selection.Stop ? "" : ">>");
+                        Console.WriteLine((++index) + ". {0}" + selection.Name, selection.Stop ? "" : "> ");
                     Console.WriteLine("\nParse Number: ");
 
                     string input_key = Console.ReadLine();
                     int.TryParse(input_key, out int input_parsed);
-                    input = --input_parsed;
+                    inputIndex = --input_parsed;
                     Console.Clear();
 
                     try
                     {
-                        if (input + 1 <= button.Length)
+                        if (inputIndex + 1 <= button.Length)
                         {
-                            switch (button[input].Name)
+                            switch (button[inputIndex].Name)
                             {
+                                case "Aiondatabase.net": button = ButtonTable.Asset; break;
+                                case "From AL-Server": ALNpcSpawnParser.InitFromConsole(); stop = true; break;
+
                                 case "NPC": button = ButtonTable.Npc; break;
-                                case "Grade": button = ButtonTable.Grade; break;
-                                case "Zone": button = ButtonTable.Zone; break;
+                                    case "Grade": button = ButtonTable.Grade; break;
+                                    case "Zone": button = ButtonTable.Zone; break;
+
                                 default: stop = true; break;
                             }
                         }
@@ -62,9 +67,9 @@ namespace Iswenzz.AION.DBParser
                         Console.Clear();
                     }
                 }
-                button[input].Execute();
+                button[inputIndex].Execute();
             }
-            catch (Exception e) { Console.WriteLine("\n" + e + "\n"); Thread.Sleep(1000); Main(); }
+            catch (Exception e) { Console.WriteLine($"\n{e}\n"); Thread.Sleep(1000); Main(); }
 
             PhantomKillProcess();
             Console.WriteLine("\nDone!\nPress Any Key to Exit...");
