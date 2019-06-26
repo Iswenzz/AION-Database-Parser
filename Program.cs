@@ -71,6 +71,9 @@ namespace Iswenzz.AION.DBParser
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Start PhantomJS on aiondatabase website.
+        /// </summary>
         public static void PhantomStart()
         {
             DriverService = PhantomJSDriverService.CreateDefaultService();
@@ -80,11 +83,18 @@ namespace Iswenzz.AION.DBParser
             Driver.Navigate();
         }
 
-        public static void PhantomTab(int index)
-        {
+        /// <summary>
+        /// Select browser tab by index.
+        /// </summary>
+        /// <param name="index">Tab index</param>
+        public static void PhantomTab(int index) =>
             Driver.SwitchTo().Window(Driver.WindowHandles[index]);
-        }
 
+        /// <summary>
+        /// Create a new browser tab.
+        /// </summary>
+        /// <param name="url">Start URL</param>
+        /// <param name="index">Tab index</param>
         public static void PhantomNewTab(string url, int index)
         {
             Driver.ExecuteScript("$(window.open('" + url + "'))");
@@ -93,11 +103,10 @@ namespace Iswenzz.AION.DBParser
             Driver.Navigate();
         }
 
-        public static void PhantomCloseTab()
-        {
-            Driver.Close();
-            // Use PhantomTab after
-        }
+        /// <summary>
+        /// Close the current tab.
+        /// </summary>
+        public static void PhantomCloseTab() => Driver.Close();
 
         public static void PhantomKillProcess()
         {
@@ -105,6 +114,11 @@ namespace Iswenzz.AION.DBParser
                 proc.Kill();
         }
 
+        /// <summary>
+        /// Get last URL Directory
+        /// </summary>
+        /// <param name="url">URL string</param>
+        /// <returns></returns>
         public static string GetLastDir(string url)
         {
             string last_dir = url.Remove(url.Length - 1);
@@ -116,6 +130,12 @@ namespace Iswenzz.AION.DBParser
             return last_dir.Substring(last_dir.Length - to_sub);
         }
 
+        /// <summary>
+        /// Load XML file from aiondatabase url
+        /// </summary>
+        /// <param name="url">URL string</param>
+        /// <param name="url_name">File name</param>
+        /// <returns></returns>
         public static string LoadXML(string url, string url_name)
         {
             return AppContext.BaseDirectory
@@ -127,6 +147,12 @@ namespace Iswenzz.AION.DBParser
                 + ".xml";
         }
 
+        /// <summary>
+        /// Save XML file from aiondatabase URL
+        /// </summary>
+        /// <param name="url">URL string</param>
+        /// <param name="url_name">File name</param>
+        /// <returns></returns>
         public static FileStream SaveXML(string url, string url_name)
         {
             string path = AppContext.BaseDirectory
@@ -141,6 +167,11 @@ namespace Iswenzz.AION.DBParser
             return new FileStream(path, FileMode.Create);
         }
 
+        /// <summary>
+        /// Save console log from aiondatabase URL
+        /// </summary>
+        /// <param name="url">URL string</param>
+        /// <returns></returns>
         public static FileStream SaveLog(string url)
         {
             string path = AppContext.BaseDirectory
@@ -153,6 +184,11 @@ namespace Iswenzz.AION.DBParser
             return new FileStream(path, FileMode.Create);
         }
 
+        /// <summary>
+        /// Save HTML file from PhantomJS tab.
+        /// </summary>
+        /// <param name="add_string">File name</param>
+        /// <returns></returns>
         public static string SaveHTML(string add_string = "")
         {
             string HTML_path = AppContext.BaseDirectory
