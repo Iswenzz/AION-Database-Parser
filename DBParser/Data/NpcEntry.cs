@@ -17,14 +17,14 @@ namespace Iswenzz.AION.DBParser.Data
 
         public void Info(int index = 0)
         {
-            Trace.WriteLine($"{index} {Race} {ID} {Grade} {Name}");
+            Trace.WriteLine($"\n{index}. {Race} {ID} {Grade} {Name}\n");
         }
 
         public void GetDrop(string url, string urlname)
         {
             ItemNpcParser npc = new ItemNpcParser(Url, Name, Grade);
             if (npc.ERROR == -1) return;
-            XDocument xml = XDocument.Load(Program.LoadXML(url, urlname));
+            XDocument xml = XDocument.Load(url);
             List<string> group = new List<string>();
             Dictionary<string, XElement> group_element = new Dictionary<string, XElement>();
 
@@ -63,7 +63,7 @@ namespace Iswenzz.AION.DBParser.Data
             }
 
             xml.Root.Add(this_npc);
-            xml.Save(Program.SaveXML(url, urlname));
+            xml.Save(url);
         }
     }
 }

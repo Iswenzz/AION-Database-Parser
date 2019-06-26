@@ -77,7 +77,7 @@ namespace Iswenzz.AION.DBParser
                         if (doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/div[3]" +
                             "/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody" +
                             "/tr[" + (t + 1) + "]/td[1]") == null)
-                            throw new Exception("End of Table");
+                            continue; // EOF
 
                         int id = TableUtility.ParseText<int>(doc.DocumentNode.SelectSingleNode("/html[1]" +
                             "/body[1]/div[3]/div[1]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]" +
@@ -119,14 +119,6 @@ namespace Iswenzz.AION.DBParser
                     catch (Exception e)
                     {
                         i++;
-
-                        switch (e.Message)
-                        {
-                            case "Duplicate": continue;
-                            case "End of Table": continue;
-                            default: break;
-                        }
-
                         Trace.WriteLine("\n" + e + "\n");
                     }
                 }

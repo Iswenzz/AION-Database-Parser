@@ -84,7 +84,7 @@ namespace Iswenzz.AION.DBParser
                     {
                         if (doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]/div[2]" +
                             "/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[1]") == null)
-                            throw new Exception("End of Table");
+                            continue; // EOF
 
                         NPCRace race = TableUtility.ParseRace(doc, "/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]" +
                             "/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[3]/div");
@@ -120,7 +120,7 @@ namespace Iswenzz.AION.DBParser
                         }
 
                         if (v > 0 && npcs[v - 1].ID == id)
-                            throw new Exception("Duplicate");
+                            continue; // Duplicate
 
                         npcs[v] = new NpcEntry();
                         npcs[v].Race = race;
@@ -130,21 +130,13 @@ namespace Iswenzz.AION.DBParser
                         npcs[v].Grade = grade;
 
                         npcs[v].Info(i + 1);
-                        npcs[v].GetDrop(Url, UrlName);
+                        npcs[v].GetDrop(Program.LoadADBXName(Url, UrlName), UrlName);
                         i++; v++;
                     }
 
                     catch (Exception e)
                     {
                         i++;
-
-                        switch (e.Message)
-                        {
-                            case "Duplicate": continue;
-                            case "End of Table": continue;
-                            default: break;
-                        }
-
                         Trace.WriteLine("\n" + e + "\n");
                     }
                 }
@@ -170,7 +162,7 @@ namespace Iswenzz.AION.DBParser
                 new XComment("Generated on " + DateTime.Now + " Using github.com/iswenzz AION Database Parser"))
             );
 
-            xml.Save(Program.SaveXML(Url, UrlName));
+            xml.Save(Program.SaveADBXName(Url, UrlName));
         }
     }
 }

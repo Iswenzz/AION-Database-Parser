@@ -141,7 +141,7 @@ namespace Iswenzz.AION.DBParser
         /// <param name="url">URL string</param>
         /// <param name="url_name">File name</param>
         /// <returns></returns>
-        public static string LoadXML(string url, string url_name)
+        public static string LoadADBXName(string url, string url_name)
         {
             return AppContext.BaseDirectory
                 + "aiondatabase/"
@@ -158,7 +158,7 @@ namespace Iswenzz.AION.DBParser
         /// <param name="url">URL string</param>
         /// <param name="url_name">File name</param>
         /// <returns></returns>
-        public static FileStream SaveXML(string url, string url_name)
+        public static FileStream SaveADBXName(string url, string url_name)
         {
             string path = AppContext.BaseDirectory
                 + "aiondatabase/"
