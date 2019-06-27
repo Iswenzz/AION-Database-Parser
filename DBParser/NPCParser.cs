@@ -26,7 +26,7 @@ namespace Iswenzz.AION.DBParser
             Url = url;
             WorldID = Program.GetLastDir(Url);
 
-            Log.Config(Program.SaveLog(Url));
+            Log.Config(Program.SaveADBLog(Url));
             Trace.WriteLine("Loading " + name + ": " + url);
 
             CreateXML();
@@ -130,7 +130,7 @@ namespace Iswenzz.AION.DBParser
                         npcs[v].Grade = grade;
 
                         npcs[v].Info(i + 1);
-                        npcs[v].GetDrop(Program.LoadADBXName(Url, UrlName), UrlName);
+                        npcs[v].GetDrop(Program.LoadADBXName(Url, UrlName));
                         i++; v++;
                     }
 

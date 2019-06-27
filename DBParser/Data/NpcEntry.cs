@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Linq;
 
 namespace Iswenzz.AION.DBParser.Data
@@ -20,9 +21,9 @@ namespace Iswenzz.AION.DBParser.Data
             Trace.WriteLine($"\n{index}. {Race} {ID} {Grade} {Name}\n");
         }
 
-        public void GetDrop(string url, string urlname)
+        public void GetDrop(string url)
         {
-            ItemNpcParser npc = new ItemNpcParser(Url, Name, Grade);
+            ItemNpcParser npc = new ItemNpcParser(this);
             if (npc.ERROR == -1) return;
             XDocument xml = XDocument.Load(url);
             List<string> group = new List<string>();
@@ -63,7 +64,8 @@ namespace Iswenzz.AION.DBParser.Data
             }
 
             xml.Root.Add(this_npc);
-            xml.Save(url);
+            using (FileStream stream = new FileStream(url, FileMode.Create))
+                xml.Save(stream);
         }
     }
 }

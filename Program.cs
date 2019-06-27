@@ -177,7 +177,7 @@ namespace Iswenzz.AION.DBParser
         /// </summary>
         /// <param name="url">URL string</param>
         /// <returns></returns>
-        public static FileStream SaveLog(string url)
+        public static FileStream SaveADBLog(string url)
         {
             string path = AppContext.BaseDirectory
                 + "aiondatabase/"

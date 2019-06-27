@@ -11,33 +11,33 @@ namespace Iswenzz.AION.DBParser
 {
     public class ItemNpcParser
     {
-        private string Url { get; set; }
-
-        public string NpcName { get; set; }
-        public int NpcLevel { get; set; }
-        public NPCGrade NpcGrade { get; set; }
+        public NpcEntry NPC { get; set; }
         public int ERROR { get; set; }
 
         public ItemNpcEntry[] Items { get; set; }
 
-        public ItemNpcParser(string url, string npc_name, NPCGrade npc_grade)
+        public ItemNpcParser(NpcEntry npc)
         {
-            NpcGrade = npc_grade;
-            NpcName = npc_name;
-
-            Url = url;
+            NPC = npc;
             ParseItem();
         }
 
         private void ParseItem()
         {
-            Program.PhantomNewTab(this.Url, 2);
+            Program.PhantomNewTab(NPC.Url, 2);
             HtmlDocument doc = new HtmlDocument();
 
-            // Get the level of this npc
-            try { NpcLevel = TableUtility.ParseText<int>(TableUtility.ParseLevel(
-                Program.Driver.FindElementByXPath("/html/body/div[3]/div[1]/div[3]/div" +
-                "/div[1]/div/table/tbody/tr[4]/td[2]").Text)); } catch { NpcLevel = 0; }
+            // Get level and name of this npc
+            try
+            {
+                NPC.Level = TableUtility.ParseText<int>(TableUtility.ParseLevel(
+                    Program.Driver.FindElementByXPath("/html/body/div[3]/div[1]/div[3]/div" +
+                    "/div[1]/div/table/tbody/tr[4]/td[2]").Text));
+                if (string.IsNullOrEmpty(NPC.Name))
+                    NPC.Name = TableUtility.ParseText<int>(Program.Driver.FindElementByXPath(
+                        "/html/body/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td/span/b").Text);
+            }
+            catch { NPC.Level = 0; }
 
             // Click on loot button
             try { Program.Driver.FindElementByXPath("//*[@href=\"#tabs-drop\"]").Click(); }
@@ -111,8 +111,8 @@ namespace Iswenzz.AION.DBParser
                         Items[i].Group = group;
 
                         Items[i].Info(i + 1);
-                        Items[i].GetRarity(NpcGrade, NpcName);
-                        Items[i].GetMinMax(NpcLevel);
+                        Items[i].GetRarity(NPC.Grade, NPC.Name);
+                        Items[i].GetMinMax(NPC.Level);
                         i++;
                     }
 
@@ -141,8 +141,8 @@ namespace Iswenzz.AION.DBParser
                 Items[kinah].Group = "KINAH";
 
                 Items[kinah].Info(kinah + 1);
-                Items[kinah].GetRarity(NpcGrade, NpcName);
-                Items[kinah].GetMinMax(NpcLevel);
+                Items[kinah].GetRarity(NPC.Grade, NPC.Name);
+                Items[kinah].GetMinMax(NPC.Level);
             }
             catch { }
 
