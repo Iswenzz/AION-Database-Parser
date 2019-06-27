@@ -38,9 +38,6 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\References\html-agility-pack-master\src\HtmlAgilityPack\bin\Debug\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Iswenzz.AION.utility">
-      <HintPath>..\AION Utility\bin\Debug\Iswenzz.AION.utility.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -64,6 +61,7 @@
     <Compile Include="DBParser\Data\NpcEntry.cs" />
     <Compile Include="DBParser\Data\NPCGrade.cs" />
     <Compile Include="DBParser\Data\NPCRace.cs" />
+    <Compile Include="DBParser\Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DBParser\Buttons\ButtonTable.cs" />

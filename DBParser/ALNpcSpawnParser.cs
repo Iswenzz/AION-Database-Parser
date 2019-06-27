@@ -6,11 +6,10 @@ using System.Xml.Linq;
 using System.IO;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using Console = Colorful.Console;
 
 using Iswenzz.AION.DBParser.Data;
-using Iswenzz.AION.Utility;
-using System.Threading;
 
 namespace Iswenzz.AION.DBParser
 {
@@ -29,7 +28,7 @@ namespace Iswenzz.AION.DBParser
             if (string.IsNullOrEmpty(FilePath))
                 return;
 
-            Log.Config(new FileStream(FilePath.Replace(".xml", ".log"), FileMode.Create));
+            Log.Config(new FileStream("./alparse/npc_drop/" + FileName.Replace(".xml", ".log"), FileMode.Create));
             Trace.WriteLine("Loading " + FileName + ":\n\n" + FilePath + "\n");
 
             CreateXML();
