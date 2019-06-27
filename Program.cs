@@ -16,6 +16,7 @@ namespace Iswenzz.AION.DBParser
         [STAThread]
         public static void Main()
         {
+            Console.WriteLine("Starting PhantomJS..");
             PhantomKillProcess();
             PhantomStart();
 
@@ -81,11 +82,15 @@ namespace Iswenzz.AION.DBParser
         /// </summary>
         public static void PhantomStart()
         {
-            DriverService = PhantomJSDriverService.CreateDefaultService();
-            DriverService.HideCommandPromptWindow = true;
-            Driver = new PhantomJSDriver(DriverService);
-            Driver.Url = "http://aiondatabase.net/en/";
-            Driver.Navigate();
+            try
+            {
+                DriverService = PhantomJSDriverService.CreateDefaultService();
+                DriverService.HideCommandPromptWindow = true;
+                Driver = new PhantomJSDriver(DriverService);
+                Driver.Url = "http://aiondatabase.net/en/";
+                Driver.Navigate();
+            }
+            catch { Main(); }
         }
 
         /// <summary>

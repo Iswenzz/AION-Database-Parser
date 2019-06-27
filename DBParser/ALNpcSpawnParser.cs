@@ -28,7 +28,8 @@ namespace Iswenzz.AION.DBParser
             if (string.IsNullOrEmpty(FilePath))
                 return;
 
-            Log.Config(new FileStream("./alparse/npc_drop/" + FileName.Replace(".xml", ".log"), FileMode.Create));
+            Log.Config(new FileStream("./alparse/npc_drop/" 
+                + Path.GetFileNameWithoutExtension(FilePath) + ".log", FileMode.Create));
             Trace.WriteLine("Loading " + FileName + ":\n\n" + FilePath + "\n");
 
             CreateXML();
