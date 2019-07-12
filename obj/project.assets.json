@@ -364,10 +364,11 @@
       ]
     },
     "NUnit/3.11.0": {
-      "sha512": "zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
+      "sha512": "BzGk+u02RCrysmLlSzD+okxzMQ8JRF4eFC/qijDJ8Y/FBdTrTkxkQyTFsYkG1o++pr7QpFAE4VDXDqIfZ/gBAg==",
       "type": "package",
       "path": "nunit/3.11.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "CHANGES.md",
         "LICENSE.txt",
@@ -397,10 +398,12 @@
       ]
     },
     "PhantomJS/2.1.1": {
-      "sha512": "F54BCUZC4uodX/rIcgWbhcDjXXbieEPaSB0Zs6QRQrwAvKfHM5O664E17mGdM0T2b3/FNdpCP5iTl/SLVnCwgQ==",
+      "sha512": "31xkN06TjBGQ9/8sGkm8IAN4DM/gMDChryu9Pp1ng9OK/xLPL2ZNbAgRCaB2g9vDkUDvhHjBEtP9JRenMDiHUg==",
       "type": "package",
       "path": "phantomjs/2.1.1",
+      "hasTools": true,
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "content/phantomjs-license.txt",
         "phantomjs.2.1.1.nupkg.sha512",
@@ -460,10 +463,11 @@
       ]
     },
     "Selenium.RC/3.1.0": {
-      "sha512": "F9sSE7yosm/DgN0wpfzECvpAAH7koLonwNkhIGKPQIW4/xEQI7eqtO9CgYkyEEqQDk1YhDZI1kjJoxAulkBdQA==",
+      "sha512": "PVfriRaQoorRtRw2I41hn0WhkmKoAYQHsV+AuYy3L32l9uCJg7aeQwaq3O6QXykZIi00TF9+Jeiah38/kYT4HA==",
       "type": "package",
       "path": "selenium.rc/3.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/ThoughtWorks.Selenium.Core.dll",
         "lib/net35/ThoughtWorks.Selenium.Core.xml",
@@ -474,10 +478,11 @@
       ]
     },
     "Selenium.Support/3.1.0": {
-      "sha512": "ihtUs6KgLm3JiGmKBPTPD/NC86RBhn8DnW3TfeOrUBxN1q3JHFnOco+kvm44MgdcdUUeffO6OrXHMB1cOv/wUQ==",
+      "sha512": "/DrptEJCZtMH+FAb1oNp4QnbEsambym1BY2R1hfC6SDNuAv+2Etj2N+gYQaz+t/89IFTSKBNCJeDusYS76/4HQ==",
       "type": "package",
       "path": "selenium.support/3.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/WebDriver.Support.dll",
         "lib/net35/WebDriver.Support.xml",
@@ -488,10 +493,11 @@
       ]
     },
     "Selenium.WebDriver/3.1.0": {
-      "sha512": "U0v5CKBxjB+IQZuHAibw1QhtggSFiOVJ7yM5oDrECUOJZJlzHf3TCuzYrrco3uS6OqgRy+c/2gQfWksntkzBag==",
+      "sha512": "2cZ3TYE6QGyLT/NmZpKhAQ3CnvbT5E/xfpCE3ZaS97VaDqUUt03sh5dPldwrr3aDokp93SxkZPH3j+v2Mt08NA==",
       "type": "package",
       "path": "selenium.webdriver/3.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/WebDriver.dll",
         "lib/net35/WebDriver.xml",
@@ -502,10 +508,11 @@
       ]
     },
     "Selenium.WebDriverBackedSelenium/3.1.0": {
-      "sha512": "ohnKGKPMny7DNuVHlDLS6ZPNVf1nD/9wyPLyy251f4bZ2Hfg/OhvieRWfZw8s1RwF+rl/60tJzsXLpf6aDrvmw==",
+      "sha512": "zNFW8hOh05g+pI9fxnNTvsKEMFyJhwE++vTN9UjWeNrPsUwLd7ICoD32UpFGnIGsN048w46WolGn0306TFc5YQ==",
       "type": "package",
       "path": "selenium.webdriverbackedselenium/3.1.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "lib/net35/Selenium.WebDriverBackedSelenium.dll",
         "lib/net35/Selenium.WebDriverBackedSelenium.xml",
