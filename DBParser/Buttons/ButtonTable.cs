@@ -8,6 +8,7 @@ namespace Iswenzz.AION.DBParser.Buttons
         {
              new Button("Aiondatabase.net"),
              new Button("From AL-Server"),
+             new Button("From TXT"),
         };
 
         public static ButtonAsset[] Asset = new ButtonAsset[]

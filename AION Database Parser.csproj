@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBParser\TextNpcParser.cs" />
     <Compile Include="DBParser\ALNpcSpawnParser.cs" />
     <Compile Include="DBParser\Buttons\Button.cs" />
     <Compile Include="DBParser\Buttons\ButtonAsset.cs" />

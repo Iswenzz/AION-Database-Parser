@@ -13,12 +13,12 @@ using Iswenzz.AION.DBParser.Data;
 
 namespace Iswenzz.AION.DBParser
 {
-    public class ALNpcSpawnParser
+    public class TextNpcParser
     {
         public string FileName { get; set; }
         public string FilePath { get; set; }
 
-        public ALNpcSpawnParser(string name, string path)
+        public TextNpcParser(string name, string path)
         {
             Console.ForegroundColor = Color.LightGray;
 
@@ -57,8 +57,8 @@ namespace Iswenzz.AION.DBParser
         {
             Program.PhantomNewTab("http://aiondatabase.net/en/", 1);
 
-            List<string> npcs_id = XDocument.Load(FilePath).Root.Element("spawn_map").Elements("spawn")
-                .Select(elem => elem.Attribute("npc_id").Value.ToString()).ToList();
+            List<string> npcs_id = File.ReadAllText(FilePath).Split('\n')
+                .Select(s => s.Trim()).ToList();
 
             Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -78,18 +78,18 @@ namespace Iswenzz.AION.DBParser
             Trace.WriteLine("\nParsed " + FileName + " in " + timer.Elapsed.ToString("hh\\:mm\\.ss"));
         }
 
-        public static ALNpcSpawnParser InitFromConsole()
+        public static TextNpcParser InitFromConsole()
         {
             string name = "";
             string path = "";
 
             Console.Clear();
-            Console.WriteLine("Please select an XML Spawn file from static_date/spawns: ");
+            Console.WriteLine("Please select a TXT file that contains NPC ID on each line: ");
 
             OpenFileDialog dialog = new OpenFileDialog
             {
-                Filter = "XML|*.xml",
-                Title = "XML Spawn file from static_date/spawns"
+                Filter = "TXT|*.txt",
+                Title = "TXT NPC ID"
             };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -99,7 +99,7 @@ namespace Iswenzz.AION.DBParser
             }
             Thread.Sleep(1000);
             Console.Clear();
-            return new ALNpcSpawnParser(name, path);
+            return new TextNpcParser(name, path);
         }
     }
 }

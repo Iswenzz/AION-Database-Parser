@@ -52,6 +52,7 @@ namespace Iswenzz.AION.DBParser
                             {
                                 case "Aiondatabase.net": button = ButtonTable.Asset; break;
                                 case "From AL-Server": ALNpcSpawnParser.InitFromConsole(); stop = true; break;
+                                case "From TXT": TextNpcParser.InitFromConsole(); stop = true; break;
 
                                 case "NPC": button = ButtonTable.Npc; break;
                                     case "Grade": button = ButtonTable.Grade; break;

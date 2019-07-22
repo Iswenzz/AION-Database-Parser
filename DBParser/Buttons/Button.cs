@@ -2,7 +2,7 @@
 
 namespace Iswenzz.AION.DBParser.Buttons
 {
-    public partial class Button
+    public class Button
     {
         public string Name { get; set; }
         public string Url { get; set; }
