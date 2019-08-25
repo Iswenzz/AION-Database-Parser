@@ -1,5 +1,15 @@
 # AION Database Parser
 
-Parse npc drops from http://aiondatabase.net
+Parse NPC drops from http://aiondatabase.net
 
-Credits: Iswenzz
+### Parser
+
+* From MAP ID
+* From AL-Game spawn XML template
+* From TXT files with NPC IDS
+
+### Config items
+
+* Drop chance
+* Min Max amount
+* Groups
