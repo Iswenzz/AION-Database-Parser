@@ -41,18 +41,12 @@ namespace Iswenzz.AION.DBParser
 
             // Click on loot button
             try { Program.Driver.FindElementByXPath("//*[@href=\"#tabs-drop\"]").Click(); }
-            catch
-            {
-                Program.PhantomCloseTab();
-                Program.PhantomTab(1);
-                Trace.WriteLine("\tNo items for this NPC!");
-                ERROR = -1;
-                return;
-            }
+            catch { SetError(-1); return; }
 
             Thread.Sleep(500);
 
             int items_size = TableUtility.Count(Program.Driver, "//*[@id=\"npcDropTable_info\"]");
+            if (items_size < 1) { SetError(-1); return; }
             Items = new ItemNpcEntry[items_size + 1]; // + 1 for kinah
 
             // Set the table size to 50
@@ -148,6 +142,20 @@ namespace Iswenzz.AION.DBParser
 
             Program.PhantomCloseTab();
             Program.PhantomTab(1);
+        }
+
+        public void SetError(int error)
+        {
+            ERROR = error;
+            Program.PhantomCloseTab();
+            Program.PhantomTab(1);
+
+            switch (error)
+            {
+                case -1:
+                    Trace.WriteLine("\tNo items for this NPC!");
+                    break;
+            }
         }
     }
 }

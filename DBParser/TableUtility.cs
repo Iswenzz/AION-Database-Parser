@@ -252,9 +252,14 @@ namespace Iswenzz.AION.DBParser
 
         public static int Count(PhantomJSDriver driver, string xpath)
         {
-            string str = driver.FindElementByXPath(xpath).Text
-                .Replace(",", "")
-                .Replace(" entries", "");
+            string str = "";
+            try
+            {
+                str = driver.FindElementByXPath(xpath).Text
+                    .Replace(",", "")
+                    .Replace(" entries", "");
+            }
+            catch { return 0; }
 
             int to_sub = 0;
             while (char.IsNumber(str[str.Length - to_sub - 1]))
