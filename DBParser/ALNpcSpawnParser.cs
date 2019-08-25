@@ -69,8 +69,8 @@ namespace Iswenzz.AION.DBParser
                 NpcEntry npc = new NpcEntry();
                 npc.Url = $"http://aiondatabase.net/en/npc/{id}/";
                 npc.ID = int.Parse(id);
+                Trace.WriteLine($"\n{index}. {npc.ID}\n");
                 npc.GetDrop("./alparse/npc_drop/" + FileName);
-                npc.Info(index);
                 index++;
             }
 

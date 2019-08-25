@@ -20,6 +20,7 @@ namespace Iswenzz.AION.DBParser.Data
         {
             Console.ForegroundColor = TableUtility.ParseColorConsole(Color);
             Trace.WriteLine($"\t{index}. {Color} {ID} {Name} {Level}");
+            Console.ForegroundColor = System.Drawing.Color.LightGray;
         }
 
         public void GetRarity(NPCGrade grade, string name)

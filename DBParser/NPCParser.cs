@@ -72,75 +72,71 @@ namespace Iswenzz.AION.DBParser
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            int v = 0;
-            for (int i = 0; i < npcs_size; i++)
+            int validNpcIndex = 0;
+            for (int item = 0; item < npcs_size;)
             {
                 doc.LoadHtml(File.ReadAllText(Program.SaveHTML(file_index++.ToString())));
-
-                for (int t = 0; t < 50; t++)
+                HtmlNode table = doc.DocumentNode.SelectSingleNode("//*[@id=\"NpcTable\"]");
+                for (int tr = 0; tr < 50; tr++)
                 {
                     try
                     {
-                        if (doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]/div[2]" +
-                            "/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[1]") == null)
-                            continue; // EOF
+                        string tableXPath = "";
+                        if (table != null && doc.DocumentNode.SelectSingleNode(
+                            table.XPath + "/tbody/tr[" + (tr + 1) + "]/td[1]") != null)
+                            tableXPath = table.XPath;
+                        else
+                            throw new Exception("{EOF}");
 
-                        NPCRace race = TableUtility.ParseRace(doc, "/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]" +
-                            "/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[3]/div");
-                        int id = TableUtility.ParseText<int>(doc.DocumentNode.SelectSingleNode("/html[1]/body[1]" +
-                            "/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[1]")
-                            .InnerText);
+                        NPCRace race = TableUtility.ParseRace(doc, tableXPath + "/tbody/tr[" + (tr + 1) 
+                            + "]/td[3]/div");
+                        int id = TableUtility.ParseText<int>(doc.DocumentNode.SelectSingleNode(tableXPath
+                            + "/tbody/tr[" + (tr + 1) + "]/td[1]").InnerText);
                         NPCGrade grade = TableUtility.ParseGrade(TableUtility.ParseText<NPCGrade>(
-                            doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]" +
-                            "/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[6]").InnerText));
+                            doc.DocumentNode.SelectSingleNode(tableXPath + "/tbody/tr[" + (tr + 1) 
+                            + "]/td[6]").InnerText));
                         string name = "";
                         string url = "";
 
                         if (race == NPCRace.BALAUR)
                         {
                             name = TableUtility.ParseText<string>(doc.DocumentNode.SelectSingleNode(
-                                "/html[1]/body[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/table[1]" +
-                                "/tbody/tr[" + (t + 1) + "]/td[3]/a/b").InnerText);
+                                tableXPath + "/tbody/tr[" + (tr + 1) + "]/td[3]/a/b").InnerText);
                             url = TableUtility.ParseUrl(TableUtility.ParseText<string>(
-                                doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]/div[3]" +
-                                "/div[1]/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[3]/a")
-                                .GetAttributeValue("href", "")));
+                                doc.DocumentNode.SelectSingleNode(tableXPath + "/tbody/tr[" + (tr + 1) 
+                                + "]/td[3]/a").GetAttributeValue("href", "")));
                         }
-
                         else
                         {
-                            name = TableUtility.ParseText<string>(doc.DocumentNode.SelectSingleNode("/html[1]" +
-                                "/body[1]/div[3]/div[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody" +
-                                "/tr[" + (t + 1) + "]/td[3]/div/a/b").InnerText);
+                            name = TableUtility.ParseText<string>(doc.DocumentNode.SelectSingleNode(tableXPath
+                                + "/tbody/tr[" + (tr + 1) + "]/td[3]/div/a/b").InnerText);
                             url = TableUtility.ParseUrl(TableUtility.ParseText<string>(
-                                doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[3]/div[1]" +
-                                "/div[3]/div[1]/div[2]/div[1]/table[1]/tbody/tr[" + (t + 1) + "]/td[3]/div/a")
-                                .GetAttributeValue("href", "")));
+                                doc.DocumentNode.SelectSingleNode(tableXPath + "/tbody/tr[" + (tr + 1) 
+                                + "]/td[3]/div/a").GetAttributeValue("href", "")));
                         }
+                        if (validNpcIndex > 0 && npcs[validNpcIndex - 1].ID == id)
+                            throw new Exception("{Duplicate ID}");
 
-                        if (v > 0 && npcs[v - 1].ID == id)
-                            continue; // Duplicate
+                        npcs[validNpcIndex] = new NpcEntry();
+                        npcs[validNpcIndex].Race = race;
+                        npcs[validNpcIndex].Name = name;
+                        npcs[validNpcIndex].Url = url;
+                        npcs[validNpcIndex].ID = id;
+                        npcs[validNpcIndex].Grade = grade;
 
-                        npcs[v] = new NpcEntry();
-                        npcs[v].Race = race;
-                        npcs[v].Name = name;
-                        npcs[v].Url = url;
-                        npcs[v].ID = id;
-                        npcs[v].Grade = grade;
-
-                        npcs[v].Info(i + 1);
-                        npcs[v].GetDrop(Program.LoadADBXName(Url, UrlName));
-                        i++; v++;
+                        npcs[validNpcIndex].Info(item + 1);
+                        npcs[validNpcIndex].GetDrop(Program.LoadADBXName(Url, UrlName));
+                        validNpcIndex++;
                     }
-
-                    catch (Exception e)
+                    catch /*(Exception e)*/
                     {
-                        i++;
-                        Trace.WriteLine("\n" + e + "\n");
+                        //Trace.WriteLine(e.Message);
+                    }
+                    finally
+                    {
+                        item++;
                     }
                 }
-
-                i--;
                 // Click on Next Page
                 Program.Driver.FindElementByXPath("//*[@id=\"NpcTable_next\"]/a").Click();
             }
