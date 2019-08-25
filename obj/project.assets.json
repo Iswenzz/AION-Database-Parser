@@ -16,6 +16,27 @@
           "lib/net461/Colorful.Console.dll": {}
         }
       },
+      "Costura.Fody/3.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "3.3.5"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {}
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/3.3.5": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "NUnit/3.11.0": {
         "type": "package",
         "compile": {
@@ -100,6 +121,27 @@
         },
         "runtime": {
           "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "Costura.Fody/3.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "3.3.5"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {}
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/3.3.5": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "NUnit/3.11.0": {
@@ -188,6 +230,27 @@
           "lib/net461/Colorful.Console.dll": {}
         }
       },
+      "Costura.Fody/3.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "3.3.5"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {}
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/3.3.5": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
+        }
+      },
       "NUnit/3.11.0": {
         "type": "package",
         "compile": {
@@ -272,6 +335,27 @@
         },
         "runtime": {
           "lib/net461/Colorful.Console.dll": {}
+        }
+      },
+      "Costura.Fody/3.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "3.3.5"
+        },
+        "compile": {
+          "lib/net40/Costura.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Costura.dll": {}
+        },
+        "build": {
+          "build/Costura.Fody.props": {}
+        }
+      },
+      "Fody/3.3.5": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "NUnit/3.11.0": {
@@ -361,6 +445,62 @@
         "lib/net46/Colorful.Console.dll",
         "lib/net461/Colorful.Console.dll",
         "lib/netstandard2.0/Colorful.Console.dll"
+      ]
+    },
+    "Costura.Fody/3.3.2": {
+      "sha512": "1+UJ9w12NSZimja6YRbjJg+QxQTxkDB/cqpCAUtI2yO8gmTNuDXw2/7+J8M+KkYABmWtqaxKR/E7EPBswyWmfA==",
+      "type": "package",
+      "path": "costura.fody/3.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Costura.Fody.props",
+        "costura.fody.3.3.2.nupkg.sha512",
+        "costura.fody.nuspec",
+        "lib/net40/Costura.dll",
+        "lib/net40/Costura.xml",
+        "netclassicweaver/Costura.Fody.dll",
+        "netclassicweaver/Costura.Fody.pdb",
+        "netclassicweaver/Costura.Fody.xcf",
+        "netstandardweaver/Costura.Fody.dll",
+        "netstandardweaver/Costura.Fody.pdb",
+        "netstandardweaver/Costura.Fody.xcf"
+      ]
+    },
+    "Fody/3.3.5": {
+      "sha512": "SsDAvO5IODB/8Xdx1hUynvylW+8lWtHQupeH3yNv0MVO5rDzBfW+W5HqdkYpeNjqDTJRIY/+9zD1rW+zz8i7ig==",
+      "type": "package",
+      "path": "fody/3.3.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Fody.targets",
+        "fody.3.3.5.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Mdb.dll",
+        "netclassictask/Mono.Cecil.Mdb.pdb",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Mdb.dll",
+        "netstandardtask/Mono.Cecil.Mdb.pdb",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
       ]
     },
     "NUnit/3.11.0": {
@@ -526,6 +666,8 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
       "Colorful.Console >= 1.2.9",
+      "Costura.Fody >= 3.3.2",
+      "Fody >= 3.3.5",
       "NUnit >= 3.11.0",
       "PhantomJS >= 2.1.1",
       "Selenium.Support >= 3.1.0",
@@ -570,6 +712,16 @@
           "Colorful.Console": {
             "target": "Package",
             "version": "[1.2.9, )"
+          },
+          "Costura.Fody": {
+            "target": "Package",
+            "version": "[3.3.2, )"
+          },
+          "Fody": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.3.5, )"
           },
           "NUnit": {
             "target": "Package",

@@ -55,8 +55,8 @@ namespace Iswenzz.AION.DBParser
                                 case "From TXT": TextNpcParser.InitFromConsole(); stop = true; break;
 
                                 case "NPC": button = ButtonTable.Npc; break;
-                                    case "Grade": button = ButtonTable.Grade; break;
-                                    case "Zone": button = ButtonTable.Zone; break;
+                                case "Grade": button = ButtonTable.Grade; break;
+                                case "Zone": button = ButtonTable.Zone; break;
 
                                 default: stop = true; break;
                             }
@@ -91,7 +91,20 @@ namespace Iswenzz.AION.DBParser
                 Driver.Url = "http://aiondatabase.net/en/";
                 Driver.Navigate();
             }
-            catch { Main(); }
+            catch (Exception e)
+            {
+                switch (e.Message)
+                {
+                    case "The path is not of a legal form.":
+                        Console.WriteLine("\nMissing WebDriver.dll\n");
+                        Console.ReadKey();
+                        Environment.Exit(-1);
+                        break;
+                    default:
+                        Main();
+                        break;
+                }
+            }
         }
 
         /// <summary>
