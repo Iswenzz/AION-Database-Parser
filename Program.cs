@@ -50,13 +50,19 @@ namespace Iswenzz.AION.DBParser
                         {
                             switch (button[inputIndex].Name)
                             {
-                                case "Aiondatabase.net": button = ButtonTable.Asset; break;
-                                case "From AL-Server": ALNpcSpawnParser.InitFromConsole(); stop = true; break;
-                                case "From TXT": TextNpcParser.InitFromConsole(); stop = true; break;
+                                case "Parse Aiondatabase.net": button = ButtonTable.Asset; break;
+                                    case "NPC": button = ButtonTable.Npc; break;
+                                    case "Grade": button = ButtonTable.Grade; break;
+                                    case "Zone": button = ButtonTable.Zone; break;
 
-                                case "NPC": button = ButtonTable.Npc; break;
-                                case "Grade": button = ButtonTable.Grade; break;
-                                case "Zone": button = ButtonTable.Zone; break;
+                                case "Parse AL-Game": ALNpcSpawnParser.InitFromConsole(); stop = true; break;
+
+                                case "Parse TXT": TextNpcParser.InitFromConsole(); stop = true; break;
+
+                                case "Looped Parsing": button = ButtonTable.Loop; break;
+                                    case "Parse all AION Maps aiondatabase.net": LoopedParsing.LoopADB(); stop = true; break;
+                                    case "Parse AL-Game spawn directory": LoopedParsing.LoopALDir(); stop = true; break;
+                                    case "Parse directory TXT IDs": LoopedParsing.LoopTXT(); stop = true; break;
 
                                 default: stop = true; break;
                             }

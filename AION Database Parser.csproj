@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBParser\Buttons\ButtonLoop.cs" />
+    <Compile Include="DBParser\LoopedParsing.cs" />
     <Compile Include="DBParser\TextNpcParser.cs" />
     <Compile Include="DBParser\ALNpcSpawnParser.cs" />
     <Compile Include="DBParser\Buttons\Button.cs" />
@@ -85,6 +87,12 @@
       <Version>3.3.5</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Core">
+      <Version>1.1.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Shell">
+      <Version>1.1.3.3</Version>
     </PackageReference>
     <PackageReference Include="NUnit">
       <Version>3.11.0</Version>

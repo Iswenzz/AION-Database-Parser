@@ -53,7 +53,7 @@ namespace Iswenzz.AION.DBParser
                 xml.Save(stream);
         }
 
-        public void ParseNPC()
+        private void ParseNPC()
         {
             Program.PhantomNewTab("http://aiondatabase.net/en/", 1);
 

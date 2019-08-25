@@ -137,7 +137,7 @@ namespace Iswenzz.AION.DBParser
             Program.PhantomTab(1);
         }
 
-        public void SetError(int error)
+        private void SetError(int error)
         {
             ERROR = error;
             Program.PhantomCloseTab();

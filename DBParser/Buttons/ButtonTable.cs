@@ -6,9 +6,17 @@ namespace Iswenzz.AION.DBParser.Buttons
     {
         public static Button[] Button = new Button[]
         {
-             new Button("Aiondatabase.net"),
-             new Button("From AL-Server"),
-             new Button("From TXT"),
+             new Button("Parse Aiondatabase.net"),
+             new Button("Parse AL-Game"),
+             new Button("Parse TXT"),
+             new Button("Looped Parsing")
+        };
+
+        public static ButtonLoop[] Loop = new ButtonLoop[]
+        {
+            new ButtonLoop("Parse all AION Maps aiondatabase.net"),
+            new ButtonLoop("Parse AL-Game spawn directory"),
+            new ButtonLoop("Parse directory TXT IDs")
         };
 
         public static ButtonAsset[] Asset = new ButtonAsset[]

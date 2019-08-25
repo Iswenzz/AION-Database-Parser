@@ -37,6 +37,27 @@
           "build/Fody.targets": {}
         }
       },
+      "Microsoft-WindowsAPICodePack-Core/1.1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Shell/1.1.3.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft-WindowsAPICodePack-Core": "1.1.3.3"
+        },
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        }
+      },
       "NUnit/3.11.0": {
         "type": "package",
         "compile": {
@@ -142,6 +163,27 @@
         "type": "package",
         "build": {
           "build/Fody.targets": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Core/1.1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Shell/1.1.3.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft-WindowsAPICodePack-Core": "1.1.3.3"
+        },
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
         }
       },
       "NUnit/3.11.0": {
@@ -251,6 +293,27 @@
           "build/Fody.targets": {}
         }
       },
+      "Microsoft-WindowsAPICodePack-Core/1.1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Shell/1.1.3.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft-WindowsAPICodePack-Core": "1.1.3.3"
+        },
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        }
+      },
       "NUnit/3.11.0": {
         "type": "package",
         "compile": {
@@ -356,6 +419,27 @@
         "type": "package",
         "build": {
           "build/Fody.targets": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Core/1.1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.dll": {}
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Shell/1.1.3.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft-WindowsAPICodePack-Core": "1.1.3.3"
+        },
+        "compile": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll": {}
         }
       },
       "NUnit/3.11.0": {
@@ -501,6 +585,32 @@
         "netstandardtask/Mono.Cecil.Rocks.pdb",
         "netstandardtask/Mono.Cecil.dll",
         "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "Microsoft-WindowsAPICodePack-Core/1.1.3.3": {
+      "sha512": "SbHe5bmladl9/rCrrgK7aevx+gWBAWSfBsJHtUEJRx7sAPkgBbWRLAa/Yf7kYGs9wTy7D8r2tmZjAFqHQFro2g==",
+      "type": "package",
+      "path": "microsoft-windowsapicodepack-core/1.1.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/Microsoft.WindowsAPICodePack.XML",
+        "lib/net452/Microsoft.WindowsAPICodePack.dll",
+        "microsoft-windowsapicodepack-core.1.1.3.3.nupkg.sha512",
+        "microsoft-windowsapicodepack-core.nuspec"
+      ]
+    },
+    "Microsoft-WindowsAPICodePack-Shell/1.1.3.3": {
+      "sha512": "Rgu8HdNbUxoBmWIcdzRAgzJmIQ7rH+wkwRjvtLgynXP/iOquIWF6xmed5F6RFZUoowRLUPk8R9mfsagNV6pjiQ==",
+      "type": "package",
+      "path": "microsoft-windowsapicodepack-shell/1.1.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/Microsoft.WindowsAPICodePack.Shell.XML",
+        "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll",
+        "microsoft-windowsapicodepack-shell.1.1.3.3.nupkg.sha512",
+        "microsoft-windowsapicodepack-shell.nuspec"
       ]
     },
     "NUnit/3.11.0": {
@@ -668,6 +778,8 @@
       "Colorful.Console >= 1.2.9",
       "Costura.Fody >= 3.3.2",
       "Fody >= 3.3.5",
+      "Microsoft-WindowsAPICodePack-Core >= 1.1.3.3",
+      "Microsoft-WindowsAPICodePack-Shell >= 1.1.3.3",
       "NUnit >= 3.11.0",
       "PhantomJS >= 2.1.1",
       "Selenium.Support >= 3.1.0",
@@ -722,6 +834,14 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.3.5, )"
+          },
+          "Microsoft-WindowsAPICodePack-Core": {
+            "target": "Package",
+            "version": "[1.1.3.3, )"
+          },
+          "Microsoft-WindowsAPICodePack-Shell": {
+            "target": "Package",
+            "version": "[1.1.3.3, )"
           },
           "NUnit": {
             "target": "Package",
