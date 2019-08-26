@@ -15,6 +15,8 @@ namespace Iswenzz.AION.DBParser
 {
     public class TextNpcParser
     {
+        public static string XNPCStaticData { get; set; }
+
         public string FileName { get; set; }
         public string FilePath { get; set; }
 
@@ -60,6 +62,7 @@ namespace Iswenzz.AION.DBParser
             List<string> npcs_id = File.ReadAllText(FilePath).Split('\n')
                 .Select(s => s.Trim()).ToList();
             List<string> alreadyParsedID = new List<string>();
+            XDocument npctemplate = string.IsNullOrEmpty(XNPCStaticData) ? null : XDocument.Load(XNPCStaticData);
 
             Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -70,14 +73,50 @@ namespace Iswenzz.AION.DBParser
                 if (!alreadyParsedID.Contains(id))
                 {
                     alreadyParsedID.Add(id);
+
                     NpcEntry npc = new NpcEntry();
                     npc.Url = $"http://aiondatabase.net/en/npc/{id}/";
                     npc.ID = int.Parse(id);
-                    Trace.WriteLine($"\n{index}. {npc.ID}\n");
+
+                    if (npctemplate != null)
+                    {
+                        XElement npct = npctemplate.Root.Elements("npc_template")
+                            .FirstOrDefault(elem => elem.Attribute("npc_id") != null
+                            && elem.Attribute("npc_id").Value == id);
+                        if (npct != null)
+                        {
+                            try
+                            {
+                                if (int.TryParse(npct.Attribute("level").Value, out int level))
+                                    npc.Level = level;
+                                switch (npct.Attribute("rating").Value)
+                                {
+                                    case "NORMAL": npc.Grade = NPCGrade.NORMAL; break;
+                                    case "ELITE": npc.Grade = NPCGrade.ELITE; break;
+                                    case "HERO": npc.Grade = NPCGrade.HEROIC; break;
+                                    case "LEGENDARY": npc.Grade = NPCGrade.LEGENDARY; break;
+                                }
+                                npc.Name = npct.Attribute("name").Value;
+                                switch (npct.Attribute("race").Value)
+                                {
+                                    case "ELYOS": npc.Race = NPCRace.ELYOS; break;
+                                    case "ASMODIANS": npc.Race = NPCRace.ASMO; break;
+                                    default: npc.Race = NPCRace.BALAUR; break;
+                                }
+                            }
+                            catch { }
+                            npc.Info(index);
+                            npct = null;
+                        }
+                    }
+                    else
+                        Trace.WriteLine($"\n{index}. {npc.ID}\n");
+
                     npc.GetDrop("./alparse/npc_drop/" + FileName);
                     index++;
                 }
             }
+            npctemplate = null;
 
             timer.Stop();
             Trace.WriteLine("\nParsed " + FileName + " in " + timer.Elapsed.ToString("hh\\:mm\\.ss"));
@@ -88,9 +127,9 @@ namespace Iswenzz.AION.DBParser
             string name = "";
             string path = "";
 
+            // TXT ID FILE
             Console.Clear();
             Console.WriteLine("Please select a TXT file that contains NPC ID on each line: ");
-
             OpenFileDialog dialog = new OpenFileDialog
             {
                 Filter = "TXT|*.txt",
@@ -102,6 +141,21 @@ namespace Iswenzz.AION.DBParser
                 path = dialog.FileName;
                 name = Path.GetFileNameWithoutExtension(path).ToUpper() + ".xml";
             }
+
+            // STATIC DATA NPC TEMPALTE
+            Console.Clear();
+            Console.WriteLine("{OPTIONAL BETTER DROP RATES}\nPlease select NPC template from static_data/npcs");
+            OpenFileDialog dialog2 = new OpenFileDialog
+            {
+                Filter = "XML|*.xml",
+                Title = "Please select NPC template from static_data/npcs"
+            };
+            if (dialog2.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine("\n" + dialog2.FileName);
+                XNPCStaticData = dialog2.FileName;
+            }
+
             Thread.Sleep(1000);
             Console.Clear();
             return new TextNpcParser(name, path);

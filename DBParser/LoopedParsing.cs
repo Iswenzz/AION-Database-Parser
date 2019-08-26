@@ -31,10 +31,10 @@ namespace Iswenzz.AION.DBParser
 
         public static void LoopALDir()
         {
+            // AL GAME SPAWN DIR
             string dir = "";
             Console.Clear();
             Console.WriteLine("Please select a AL-Game spawn directory (instances/npcs)");
-
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
                 Title = "Please select a AL-Game spawn directory (instances/npcs)",
@@ -42,6 +42,17 @@ namespace Iswenzz.AION.DBParser
             };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 dir = dialog.FileName;
+
+            // STATIC DATA NPC TEMPALTE
+            Console.Clear();
+            Console.WriteLine("{OPTIONAL BETTER DROP RATES}\nPlease select NPC template from static_data/npcs");
+            OpenFileDialog dialog2 = new OpenFileDialog
+            {
+                Filter = "XML|*.xml",
+                Title = "Please select NPC template from static_data/npcs"
+            };
+            if (dialog2.ShowDialog() == DialogResult.OK)
+                ALNpcSpawnParser.XNPCStaticData = dialog2.FileName;
 
             foreach (string file in Directory.GetFiles(dir, "*.xml", SearchOption.AllDirectories))
             {
@@ -66,10 +77,10 @@ namespace Iswenzz.AION.DBParser
 
         public static void LoopTXT()
         {
+            // TXT FILES DIR
             string dir = "";
             Console.Clear();
             Console.WriteLine("Please select a dir that contains txt id files");
-
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
                 Title = "Please select a dir that contains txt id files",
@@ -77,6 +88,17 @@ namespace Iswenzz.AION.DBParser
             };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 dir = dialog.FileName;
+
+            // STATIC DATA NPC TEMPALTE
+            Console.Clear();
+            Console.WriteLine("{OPTIONAL BETTER DROP RATES}\nPlease select NPC template from static_data/npcs");
+            OpenFileDialog dialog2 = new OpenFileDialog
+            {
+                Filter = "XML|*.xml",
+                Title = "Please select NPC template from static_data/npcs"
+            };
+            if (dialog2.ShowDialog() == DialogResult.OK)
+                TextNpcParser.XNPCStaticData = dialog2.FileName;
 
             foreach (string file in Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories))
             {
