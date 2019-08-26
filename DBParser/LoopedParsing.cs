@@ -10,15 +10,28 @@ namespace Iswenzz.AION.DBParser
 {
     public static class LoopedParsing
     {
+        public static int StartAt()
+        {
+            int ret = 0;
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Start loop at index:\t\t\t{ENTER->0}");
+                try { ret = int.Parse(Console.ReadLine()); break; }
+                catch { Console.WriteLine("Wrong input."); Thread.Sleep(2000); }
+            }
+            return ret;
+        }
+
         public static void LoopADB()
         {
-            foreach (ButtonNpcZone button in ButtonTable.Zone)
+            for (int i = StartAt(); i < ButtonTable.Zone.Length; i++)
             {
-                try { button.Execute(); }
+                try { ButtonTable.Zone[i].Execute(); }
                 catch (Exception e)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Map {button.Name.ToUpper()} crashed:\n{e.Message}");
+                    Console.WriteLine($"Map {ButtonTable.Zone[i].Name.ToUpper()} crashed:\n{e.Message}");
                 }
                 finally
                 {
@@ -54,17 +67,18 @@ namespace Iswenzz.AION.DBParser
             if (dialog2.ShowDialog() == DialogResult.OK)
                 ALNpcSpawnParser.XNPCStaticData = dialog2.FileName;
 
-            foreach (string file in Directory.GetFiles(dir, "*.xml", SearchOption.AllDirectories))
+            string[] files = Directory.GetFiles(dir, "*.xml", SearchOption.AllDirectories);
+            for (int i = StartAt(); i < files.Length; i++)
             {
                 try
                 {
                     Console.Clear();
-                    new ALNpcSpawnParser(Path.GetFileNameWithoutExtension(file).ToUpper() + ".xml", file);
+                    new ALNpcSpawnParser(Path.GetFileNameWithoutExtension(files[i]).ToUpper() + ".xml", files[i]);
                 }
                 catch (Exception e)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Map {Path.GetFileNameWithoutExtension(file)} crashed:\n{e.Message}");
+                    Console.WriteLine($"Map {Path.GetFileNameWithoutExtension(files[i])} crashed:\n{e.Message}");
                 }
                 finally
                 {
@@ -100,17 +114,18 @@ namespace Iswenzz.AION.DBParser
             if (dialog2.ShowDialog() == DialogResult.OK)
                 TextNpcParser.XNPCStaticData = dialog2.FileName;
 
-            foreach (string file in Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories))
+            string[] files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories);
+            for (int i = StartAt(); i < files.Length; i++)
             {
                 try
                 {
                     Console.Clear();
-                    new TextNpcParser(Path.GetFileNameWithoutExtension(file).ToUpper() + ".xml", file);
+                    new TextNpcParser(Path.GetFileNameWithoutExtension(files[i]).ToUpper() + ".xml", files[i]);
                 }
                 catch (Exception e)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Map {Path.GetFileNameWithoutExtension(file)} crashed:\n{e.Message}");
+                    Console.WriteLine($"Map {Path.GetFileNameWithoutExtension(files[i])} crashed:\n{e.Message}");
                 }
                 finally
                 {
