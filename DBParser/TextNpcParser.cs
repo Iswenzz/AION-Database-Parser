@@ -59,6 +59,7 @@ namespace Iswenzz.AION.DBParser
 
             List<string> npcs_id = File.ReadAllText(FilePath).Split('\n')
                 .Select(s => s.Trim()).ToList();
+            List<string> alreadyParsedID = new List<string>();
 
             Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -66,12 +67,16 @@ namespace Iswenzz.AION.DBParser
             int index = 1;
             foreach (string id in npcs_id)
             {
-                NpcEntry npc = new NpcEntry();
-                npc.Url = $"http://aiondatabase.net/en/npc/{id}/";
-                npc.ID = int.Parse(id);
-                Trace.WriteLine($"\n{index}. {npc.ID}\n");
-                npc.GetDrop("./alparse/npc_drop/" + FileName);
-                index++;
+                if (!alreadyParsedID.Contains(id))
+                {
+                    alreadyParsedID.Add(id);
+                    NpcEntry npc = new NpcEntry();
+                    npc.Url = $"http://aiondatabase.net/en/npc/{id}/";
+                    npc.ID = int.Parse(id);
+                    Trace.WriteLine($"\n{index}. {npc.ID}\n");
+                    npc.GetDrop("./alparse/npc_drop/" + FileName);
+                    index++;
+                }
             }
 
             timer.Stop();
