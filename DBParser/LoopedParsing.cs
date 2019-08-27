@@ -35,6 +35,8 @@ namespace Iswenzz.AION.DBParser
                 }
                 finally
                 {
+                    Program.PhantomKillProcess();
+                    Program.PhantomStart();
                     Thread.Sleep(2000);
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -82,6 +84,8 @@ namespace Iswenzz.AION.DBParser
                 }
                 finally
                 {
+                    Program.PhantomKillProcess();
+                    Program.PhantomStart();
                     Thread.Sleep(2000);
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -129,6 +133,8 @@ namespace Iswenzz.AION.DBParser
                 }
                 finally
                 {
+                    Program.PhantomKillProcess();
+                    Program.PhantomStart();
                     Thread.Sleep(2000);
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
