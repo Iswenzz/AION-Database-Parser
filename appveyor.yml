@@ -6,8 +6,6 @@ platform: AnyCPU
 
 before_build:
 - cmd: >-
-    nuget restore -PackagesDirectory ../packages
-    
     msbuild.exe
 
 build:
