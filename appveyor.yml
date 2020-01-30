@@ -6,7 +6,7 @@ platform: AnyCPU
 
 before_build:
 - cmd: >-
-    msbuild.exe
+    msbuild.exe -t:restore
 
 build:
   verbosity: minimal
