@@ -21,4 +21,4 @@ Things that will be parsed include the name of the item, its rarity, its ID numb
 * Min Max amount
 * Groups
 
-The Drop Chance is Loosely based off of AION 1.0's drop chances, but you can add your own custom values if you want. Min/max values as well as item groups can be fully customized by following the example I've provided in the text file attached to the release of this program.
+The Drop Chance is loosely based off of AION 1.0's drop chances, but you can add your own custom values if you want. Min/max values as well as item groups can be fully customized by following the example I've provided in the text file attached to the release of this program.
