@@ -10,15 +10,24 @@ Things that will be parsed include the name of the item, its rarity, its ID numb
 ![](https://i.imgur.com/UpQWlIz.png)
 
 ## Parser
-
 * From MAP ID
 * From AL-Game spawn XML template
 * From TXT files with NPC IDS
 
 ## Config items
-
 * Drop chance
 * Min Max amount
 * Groups
 
 The Drop Chance is loosely based off of AION 1.0's drop chances, but you can add your own custom values if you want. Min/max values as well as item groups can be fully customized by following the example I've provided in the text file attached to the release of this program.
+
+## Instructions
+In order to use this application, just download the archived file down below, and extract it to any destination. You can create a shortcut of the executable file and place it anywhere, and run it from said shortcut.
+
+## Building
+1. [Visual Studio](https://visualstudio.microsoft.com/)
+
+### [Download](https://github.com/Iswenzz/AION-Database-Parser/releases)
+
+## Contributors:
+***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code. Also feel free to post about any problems that may arise in the issues section of the repository.
